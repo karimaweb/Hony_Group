@@ -1,5 +1,22 @@
 {% extends '@EasyAdmin/page/content.html.twig' %}
 
 {% block content %}
+<div style="padding: 2rem;">
     <h1>Dashboard Honey Group</h1>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
+        <div style="background: #fff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h3>🗺️ Circuits</h3>
+            <p>Gérer les circuits touristiques</p>
+        </div>
+        <div style="background: #fff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h3>🌍 Cours de langue</h3>
+            <p>Gérer les cours proposés</p>
+        </div>
+        <div style="background: #fff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h3>💼 Prestations</h3>
+            <p>Gérer les services</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

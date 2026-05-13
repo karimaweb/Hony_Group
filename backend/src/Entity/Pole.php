@@ -34,6 +34,7 @@ class Pole
     public function __construct()
     {
         $this->prestations = new ArrayCollection();
+        $this->dateCreation = new \DateTimeImmutable();
     }
 
     public function getId(): ?int

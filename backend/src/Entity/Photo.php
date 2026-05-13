@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\PhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: PhotoRepository::class)]
+#[Vich\Uploadable]
 class Photo
 {
     #[ORM\Id]
@@ -72,4 +75,17 @@ class Photo
 
         return $this;
     }
+    public function setImageFile(?File $imageFile = null): void
+{
+    $this->imageFile = $imageFile;
+
+    if ($imageFile) {
+        $this->updatedAt = new \DateTimeImmutable();
+    }
+}
+
+public function getImageFile(): ?File
+{
+    return $this->imageFile;
+}
 }
