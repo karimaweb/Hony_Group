@@ -13,7 +13,9 @@ services:
 
     command: >
       bash -c "
-      docker-php-ext-install pdo pdo_mysql &&
+      apt-get update &&
+      apt-get install -y libicu-dev &&
+      docker-php-ext-install pdo pdo_mysql intl &&
       php-fpm
       "
 

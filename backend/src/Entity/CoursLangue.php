@@ -5,6 +5,11 @@ namespace App\Entity;
 use App\Repository\CoursLangueRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+#[UniqueEntity(
+    fields: ['langue'],
+    message: 'Ce cours de langue existe déjà.'
+)]
 
 #[ORM\Entity(repositoryClass: CoursLangueRepository::class)]
 class CoursLangue

@@ -9,3 +9,6 @@
 
 controllers:
     resource: routing.controllers
+formation:
+    path: /formation
+    controller: App\Controller\FormationController::index

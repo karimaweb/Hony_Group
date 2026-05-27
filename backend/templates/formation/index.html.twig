@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Honey Group Formation</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#111827;
+        }
+
+        .hero{
+
+            background:linear-gradient(135deg,#000000,#1e1e1e);
+            color:white;
+            text-align:center;
+            padding:100px 20px;
+            border-bottom:3px solid #facc15;
+        }
+
+        .hero h1{
+
+            font-size:70px;
+            margin-bottom:20px;
+            font-weight:bold;
+            color:#facc15;
+        }
+
+        .hero p{
+
+            font-size:24px;
+            color:#e5e7eb;
+        }
+
+        .formations-container{
+
+            width:90%;
+            margin:auto;
+            margin-top:80px;
+            margin-bottom:80px;
+        }
+
+        .formations-grid{
+
+            display:flex;
+            justify-content:center;
+            gap:40px;
+            flex-wrap:wrap;
+        }
+
+        .formation-card{
+
+            width:350px;
+            background:#1f2937;
+            border-radius:25px;
+            overflow:hidden;
+            box-shadow:0 10px 30px rgba(0,0,0,0.4);
+            transition:0.3s;
+            border:1px solid #374151;
+        }
+
+        .formation-card:hover{
+
+            transform:translateY(-10px);
+            border:1px solid #facc15;
+        }
+
+        .formation-card img{
+
+            width:100%;
+            height:250px;
+            object-fit:cover;
+        }
+
+        .formation-content{
+
+            padding:30px;
+        }
+
+        .formation-content h2{
+
+            font-size:38px;
+            margin-bottom:15px;
+            color:#facc15;
+        }
+
+        .niveau{
+
+            color:#facc15;
+            font-weight:bold;
+            margin-bottom:20px;
+            font-size:20px;
+        }
+
+        .description{
+
+            color:#d1d5db;
+            line-height:1.7;
+            font-size:18px;
+        }
+
+        .btn{
+
+            display:inline-block;
+            margin-top:25px;
+            padding:14px 30px;
+            background:#facc15;
+            color:black;
+            border-radius:14px;
+            text-decoration:none;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+
+            background:#eab308;
+            transform:scale(1.05);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+    <h1>Honey Group Formation</h1>
+
+    <p>
+        Développez vos compétences avec nos formations professionnelles.
+    </p>
+
+</section>
+
+<section class="formations-container">
+
+    <div class="formations-grid">
+
+        {% for formation in formations %}
+
+            <div class="formation-card">
+
+                <img src="/uploads/photos/{{ formation.prestation.photo.urlFichier }}" alt="">
+
+                <div class="formation-content">
+
+                    <h2>
+                        {{ formation.langue }}
+                    </h2>
+
+                    <p class="niveau">
+                        Niveau : {{ formation.niveau }}
+                    </p>
+
+                    <p class="description">
+
+                        {{ formation.descriptifProgramme|slice(0,150) }}...
+
+                    </p>
+
+                    <a href="#" class="btn">
+                        Nous contacter
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+</body>
+</html>
